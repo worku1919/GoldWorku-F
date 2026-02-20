@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Services - Worku Fikadu</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    /* Global Styles */
+:root {
+    --primary-color: #4a6bff;
+    --secondary-color: #ff6b6b;
+    --accent-color: #ffa500;
+    --dark-color: #333;
+    --light-color: #f8f9fa;
+    --text-color: #555;
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Poppins', sans-serif;
+    --transition: all 0.3s ease;
+    --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --border-radius: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: #fff;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3a5be8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 107, 255, 0.3);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+}
+
+.nav-brand .logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-brand .brand-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 30px;
+    position: relative;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--dark-color);
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link.active:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-toggle i {
+    margin-left: 5px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    z-index: 100;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px 15px;
+    color: var(--dark-color);
+    transition: var(--transition);
+}
+
+.dropdown-item:hover {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark-color);
+    margin: 3px 0;
+    transition: var(--transition);
+}
+
+/* Page Header */
+.page-header {
+    padding: 120px 0 60px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(74, 107, 255, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%);
+}
+
+.page-title {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-logo .logo {
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+.footer-logo h3 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+    color: white;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-links h4:after,
+.footer-contact h4:after,
+.footer-social h4:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #ccc;
+    transition: var(--transition);
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-contact p i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .nav-item {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 20px 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-item {
+        margin: 15px 0;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: var(--light-color);
+        margin-top: 10px;
+    }
+    
+    .page-header {
+        padding: 100px 0 40px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .page-header {
+        padding: 90px 0 30px;
+    }
+}
+</style>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="Image/photo_2026-01-28_21-28-26.jpg" alt="Worku Fikadu Logo" class="logo">
+                <span class="brand-text">Worku Fikadu</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link" data-translate="about">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link active" data-translate="services">My Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="weborder.html" class="nav-link" data-translate="weborder">Web Order</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-translate="contact">Contact Me</a>
+                </li>
+                <li class="nav-item">
+                    <a href="auth.html" class="nav-link" data-translate="auth">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a href="chatbot.html" class="nav-link" data-translate="chatbot">Chatbot</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="language-dropdown">
+                        <i class="fas fa-globe"></i> <span data-translate="language">Language</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item language-option" data-lang="en">English</a>
+                        <a href="#" class="dropdown-item language-option" data-lang="am">አማርኛ (Amharic)</a>
+                        <a href="#" class="dropdown-item language-option" data-lang="ao">Afaan Oromoo</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title" data-translate="services-title">My Services</h1>
+            <p class="page-subtitle" data-translate="services-subtitle">Professional web development solutions tailored to your needs</p>
+        </div>
+    </section>
+
+    <!-- Services Content -->
+    <section class="services-content">
+        <div class="container">
+            <div class="services-intro" data-aos="fade-up">
+                <h2 data-translate="services-heading">Professional Web Development Services</h2>
+                <p data-translate="services-intro">
+                    As a full-stack web developer, I offer comprehensive web development services to help businesses and individuals establish a strong online presence. With expertise in modern technologies and a focus on user experience, I create websites that are not only visually appealing but also functional, responsive, and optimized for performance.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="service-title" data-translate="e-commerce">E-commerce Platforms</h3>
+                    <p class="service-description" data-translate="e-commerce-desc">
+                        Custom e-commerce solutions with secure payment integration, inventory management, and user-friendly shopping experiences.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-translate="feature1">Secure payment gateways</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature2">Product catalog management</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature3">Shopping cart & checkout</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature4">Order tracking system</span></li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price-label" data-translate="starting-from">Starting from</span>
+                        <span class="price-value">$500</span>
+                    </div>
+                    <a href="weborder.html" class="btn btn-primary" data-translate="order-now">Order Now</a>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="service-title" data-translate="business-websites">Business & Corporate Websites</h3>
+                    <p class="service-description" data-translate="business-desc">
+                        Professional websites for businesses and organizations that effectively communicate your brand and services.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-translate="feature5">Responsive design</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature6">Content management system</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature7">SEO optimization</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature8">Analytics integration</span></li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price-label" data-translate="starting-from">Starting from</span>
+                        <span class="price-value">$300</span>
+                    </div>
+                    <a href="weborder.html" class="btn btn-primary" data-translate="order-now">Order Now</a>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-blog"></i>
+                    </div>
+                    <h3 class="service-title" data-translate="blogs-cms">Blogs & Content Management</h3>
+                    <p class="service-description" data-translate="cms-desc">
+                        Custom blog platforms and content management systems that make publishing and managing content easy.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-translate="feature9">Easy content publishing</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature10">User management</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature11">Comment system</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature12">Social media integration</span></li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price-label" data-translate="starting-from">Starting from</span>
+                        <span class="price-value">$250</span>
+                    </div>
+                    <a href="weborder.html" class="btn btn-primary" data-translate="order-now">Order Now</a>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="service-title" data-translate="custom-solutions">Custom Web Solutions</h3>
+                    <p class="service-description" data-translate="custom-desc">
+                        Tailored web applications designed to meet your specific business requirements and challenges.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-translate="feature13">Requirement analysis</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature14">Custom development</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature15">Database design</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature16">Ongoing support</span></li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price-label" data-translate="contact-for-price">Contact for price</span>
+                    </div>
+                    <a href="contact.html" class="btn btn-outline" data-translate="get-quote">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title" data-translate="process-title">My Development Process</h2>
+            <div class="process-steps">
+                <div class="step" data-aos="fade-up">
+                    <div class="step-number">1</div>
+                    <h3 data-translate="step1-title">Discovery & Planning</h3>
+                    <p data-translate="step1-desc">Understanding your requirements, goals, and target audience to create a detailed project plan.</p>
+                </div>
+                <div class="step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">2</div>
+                    <h3 data-translate="step2-title">Design & Prototyping</h3>
+                    <p data-translate="step2-desc">Creating wireframes and visual designs that align with your brand and user expectations.</p>
+                </div>
+                <div class="step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">3</div>
+                    <h3 data-translate="step3-title">Development & Testing</h3>
+                    <p data-translate="step3-desc">Building the website with clean, efficient code and thorough testing to ensure functionality.</p>
+                </div>
+                <div class="step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">4</div>
+                    <h3 data-translate="step4-title">Launch & Support</h3>
+                    <p data-translate="step4-desc">Deploying the website and providing ongoing support to ensure smooth operation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="container">
+            <h2 class="section-title" data-translate="portfolio-title">Recent Projects</h2>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all" data-translate="all">All</button>
+                <button class="filter-btn" data-filter="ecommerce" data-translate="ecommerce">E-commerce</button>
+                <button class="filter-btn" data-filter="business" data-translate="business">Business</button>
+                <button class="filter-btn" data-filter="blog" data-translate="blog">Blog</button>
+                <button class="filter-btn" data-filter="custom" data-translate="custom">Custom</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="ecommerce" data-aos="fade-up">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio1.jpg" alt="E-commerce Platform">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>E-commerce Platform</h3>
+                                <p>Online shopping platform with payment integration</p>
+                                <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                                <a href="#" class="portfolio-popup"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="business" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio2.jpg" alt="Corporate Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Corporate Website</h3>
+                                <p>Professional website for a financial services company</p>
+                                <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                                <a href="#" class="portfolio-popup"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="blog" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio3.jpg" alt="Blog Platform">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Blog Platform</h3>
+                                <p>Content management system for a travel blogger</p>
+                                <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                                <a href="#" class="portfolio-popup"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="custom" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio4.jpg" alt="Custom Solution">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Inventory Management</h3>
+                                <p>Custom web application for inventory tracking</p>
+                                <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                                <a href="#" class="portfolio-popup"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="ecommerce" data-aos="fade-up" data-aos-delay="400">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio5.jpg" alt="Online Store">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Fashion Store</h3>
+                                <p>E-commerce platform for a fashion retailer</p>
+                                <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                                <a href="#" class="portfolio-popup"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="business" data-aos="fade-up" data-aos-delay="500">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio6.jpg" alt="Restaurant Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Restaurant Website</h3>
+                                <p>Website with online reservation system</p>
+                                <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                                <a href="#" class="portfolio-popup"><i class="fas fa-search-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-translate="testimonials">Client Testimonials</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-card active">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Worku delivered an exceptional e-commerce platform that exceeded our expectations. His attention to detail and technical expertise are outstanding."</p>
+                        <div class="testimonial-author">
+                            <img src="images/client1.jpg" alt="Client" class="client-image">
+                            <div class="client-info">
+                                <h4 class="client-name">Abel Tekle</h4>
+                                <p class="client-position">CEO, EthioMarket</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Working with Worku was a great experience. He understood our requirements perfectly and delivered a professional website on time."</p>
+                        <div class="testimonial-author">
+                            <img src="images/client2.jpg" alt="Client" class="client-image">
+                            <div class="client-info">
+                                <h4 class="client-name">Sara Ahmed</h4>
+                                <p class="client-position">Marketing Director, AddisBiz</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Worku's technical skills and problem-solving abilities are impressive. He created a custom solution that perfectly fits our business needs."</p>
+                        <div class="testimonial-author">
+                            <img src="images/client3.jpg" alt="Client" class="client-image">
+                            <div class="client-info">
+                                <h4 class="client-name">Michael Bekele</h4>
+                                <p class="client-position">Founder, Oromia Tech</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2 data-translate="cta-title">Ready to Start Your Project?</h2>
+                <p data-translate="cta-desc">Let's work together to bring your ideas to life with a professional web solution.</p>
+                <a href="weborder.html" class="btn btn-primary" data-translate="start-project">Start Your Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="Image/46004190-947b-4318-b9ba-338cb75a5ea0.png" alt="Worku Fikadu Logo" class="logo">
+                    <h3>Worku Fikadu</h3>
+                    <p data-translate="footer-text">Transforming Ethiopia's digital future through innovative web solutions.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-translate="quick-links">Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html" data-translate="about">About Me</a></li>
+                        <li><a href="services.html" data-translate="services">My Services</a></li>
+                        <li><a href="weborder.html" data-translate="weborder">Web Order</a></li>
+                        <li><a href="contact.html" data-translate="contact">Contact Me</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-translate="contact-info">Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> workufikadu643@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +2519 19 63 95 19 <br> +2519 11 07 64 58 </p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jimma, Ethiopia</p>
+                </div>
+                <div class="footer-social">
+                    <h4 data-translate="follow-me">Follow Me</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Worku Fikadu. <span data-translate="rights">All Rights Reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    
